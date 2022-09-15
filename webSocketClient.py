@@ -47,7 +47,8 @@ class WebSocketClient():
                     title = json_message["data"]["redemption"]["reward"]["title"]
 
                     if title == 'peepeepooopoo':
-                        await self.sendMessage("pee pee poo poo")
+                        # send a message?
+                        
             except websockets.exceptions.ConnectionClosed:
                 print('Connection with server closed')
                 break              
