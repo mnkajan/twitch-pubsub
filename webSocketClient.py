@@ -41,9 +41,16 @@ class WebSocketClient():
             try:
                 message = await connection.recv()
                 print('Received message from server: ' + str(message))
+                json_message = json.loads(message)
+                if json_message["type"] == "MESSAGE":
+                    json_message = json.loads(json_message["data"]["message"])
+                    title = json_message["data"]["redemption"]["reward"]["title"]
+
+                    if title == 'peepeepooopoo':
+                        await self.sendMessage("pee pee poo poo")
             except websockets.exceptions.ConnectionClosed:
                 print('Connection with server closed')
-                break
+                break              
 
     async def heartbeat(self, connection):
         '''
