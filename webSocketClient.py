@@ -18,7 +18,7 @@ class WebSocketClient():
         '''
         self.connection = await websockets.connect('wss://pubsub-edge.twitch.tv')
         if self.connection.open:
-            print('Connection stablished. Client correcly connected')
+            print('Connection established. Client connected.')
             # Send greeting
             message = {"type": "LISTEN", "nonce": str(self.generate_nonce()), "data":{"topics": self.topics, "auth_token": self.auth_token}}
             json_message = json.dumps(message)
